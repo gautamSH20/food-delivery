@@ -4,7 +4,7 @@ interface CardProp {
   name: string;
   size: "lg" | "md" | "sm";
   price: number;
-  imgsrc: string;
+  imgsrc?: string;
   button1?: ReactElement;
 }
 
@@ -16,8 +16,19 @@ const styleSize = {
 
 export function Card(prop: CardProp) {
   return (
-    <div className={`${styleSize[prop.size]} border-2 border-green-300 w-fit `}>
-      <img src={`${prop.imgsrc}`} className="h-40 w-40 shadow-md" />
+    <div
+      className={`${
+        styleSize[prop.size]
+      } border-2 border-green-300 w-fit mr-2 mt-1`}
+    >
+      <img
+        src={`${
+          prop.imgsrc
+            ? prop.imgsrc
+            : "https://cdn.dribbble.com/userupload/19671725/file/original-510b61d9f20a27244a148c4aa43774c8.gif"
+        }`}
+        className="h-40 w-40 shadow-md"
+      />
       <div>
         <p>{prop.price}</p>
         <p>{prop.name}</p>

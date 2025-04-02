@@ -1,11 +1,18 @@
 import "./App.css";
-import { Banner } from "./components/Banner";
+
+import { NavBar } from "./components/NavBar";
+import { NavBottomBar } from "./components/NavBottomBar";
+import { Home } from "./page/Home";
+
+// Have to create 2 more menu and cart inside cart is going to be a checkout page
 
 function App() {
   return (
-    <>
-      <Banner />
-    </>
+    <div className="bg-gray-200">
+      <NavBar />
+      <Home />
+      <NavBottomBar />
+    </div>
   );
 }
 
