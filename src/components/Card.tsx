@@ -19,7 +19,7 @@ export function Card(prop: CardProp) {
     <div
       className={`${
         styleSize[prop.size]
-      } border-2 border-green-300 w-fit mr-2 mt-1`}
+      } border-2 border-green-300 w-fit m-2 cursor-pointer hover:shadow-md hover:shadow-gray-400 tansition-all duration-300`}
     >
       <img
         src={`${

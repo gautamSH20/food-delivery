@@ -7,8 +7,8 @@ interface Cateinput {
 
 export function Cate(prop: Cateinput) {
   return (
-    <div className="w-fit flex flex-col items-center cursor-pointer group">
-      <div className=" border-1 inset-shadow-green-300 inset-shadow-sm rounded-full">
+    <div className="w-fit flex flex-col items-center cursor-pointer group m-2">
+      <div className=" border-1 border-green-300 hover:shadow-green-300 hover:shadow-md rounded-full tasition-all duration-300">
         {prop.icon}
       </div>
       <div className="text-lg group-hover:text-green-600">{prop.name}</div>
