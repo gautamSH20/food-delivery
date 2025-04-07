@@ -9,7 +9,7 @@ import { addToCart } from "../features/Cart/cartSlice";
 import { useDispatch } from "react-redux";
 
 export function Home() {
-  const dispact = useDispatch();
+  const dispatch = useDispatch();
   return (
     <div>
       <Banner />
@@ -47,7 +47,7 @@ export function Home() {
                 variant="secandary"
                 size="md"
                 onclick={() => {
-                  const done = dispact(
+                  const done = dispatch(
                     addToCart({ name: "pizza2", price: 20, id: "123" })
                   );
                   console.log(done);

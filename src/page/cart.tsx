@@ -4,6 +4,8 @@ import { useSelector } from "react-redux";
 
 export function Cart() {
   const data = useSelector((state: RootState) => state.Cart.data);
+  const state = useSelector((state: RootState) => state);
+  console.log(state);
   console.log(data);
   return (
     <div>
