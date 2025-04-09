@@ -1,5 +1,4 @@
 import { ReactElement } from "react";
-import { UpArrow } from "../icon/UpArrow";
 
 interface CardProp {
   name: string;

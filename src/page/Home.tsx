@@ -3,6 +3,7 @@ import { Button } from "../components/Button";
 import { Card } from "../components/Card";
 import { Cate } from "../components/Cate";
 import { Burgur } from "../icon/Burgur";
+import { Carticon } from "../icon/Carticon";
 import { Drinks } from "../icon/Drinks";
 import { PizzaIcon } from "../icon/Pizzaicon";
 // import { addToCart } from "../features/Cart/cartSlice";
@@ -12,6 +13,12 @@ import { useUserStore } from "../store/useUserStore";
 
 export function Home() {
   const { login } = useUserStore();
+  const product = [
+    { name: "Margrita Pizza", price: 100, quant: 1 },
+    { name: "ALOO TIKI", price: 35, quant: 1 },
+    { name: "Peparoni", price: 250, quant: 1 },
+    { name: "Chicken sandwish", price: 70, quant: 1 },
+  ];
   return (
     <div>
       <Banner />
@@ -26,48 +33,25 @@ export function Home() {
       <div className="bg-white mt-3">
         <p className="text-lg mb-2"> populor food items of the day </p>
         <div className="flex justify-center items-center flex-wrap">
-          <Card
-            name="pizza"
-            size="lg"
-            price={300}
-            button1={
-              <Button
-                title="add to cart"
-                variant="secandary"
-                onclick={() => {
-                  const data = {
-                    name: "pizza",
-                    price: 300,
-                    quant: 1,
-                  };
-                  login(data);
-                }}
-                size="md"
-              />
-            }
-          />
-          <Card
-            name="pizza2"
-            size="lg"
-            price={400}
-            button1={
-              <Button
-                title="add to cart"
-                variant="secandary"
-                size="md"
-                onclick={() => {
-                  const data = {
-                    name: "pizza33",
-                    price: 30,
-                    quant: 1,
-                  };
-                  login(data);
-                }}
-              />
-            }
-          />
-          <Card name="pizza3" size="lg" price={100} />
-          <Card name="pizza4" size="lg" price={99} />
+          {product.map((item, key) => (
+            <Card
+              size="md"
+              name={item.name}
+              price={item.price}
+              button1={
+                <Button
+                  title="Add to cart"
+                  iconFront={<Carticon />}
+                  variant="primary"
+                  size="md"
+                  onclick={() => {
+                    login(item);
+                  }}
+                />
+              }
+              key={key}
+            />
+          ))}
         </div>
       </div>
     </div>
