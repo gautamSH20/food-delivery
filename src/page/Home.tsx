@@ -7,8 +7,7 @@ import { Drinks } from "../icon/Drinks";
 import { PizzaIcon } from "../icon/Pizzaicon";
 // import { addToCart } from "../features/Cart/cartSlice";
 // import { useAppDispatch } from "../app/hooks";
-import { useContext } from "react";
-import { UserContext } from "../context/use-counte";
+
 import { useUserStore } from "../store/useUserStore";
 
 export function Home() {
@@ -35,7 +34,14 @@ export function Home() {
               <Button
                 title="add to cart"
                 variant="secandary"
-                onclick={() => {}}
+                onclick={() => {
+                  const data = {
+                    name: "pizza",
+                    price: 300,
+                    quant: 1,
+                  };
+                  login(data);
+                }}
                 size="md"
               />
             }

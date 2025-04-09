@@ -1,4 +1,5 @@
 import { ReactElement } from "react";
+import { UpArrow } from "../icon/UpArrow";
 
 interface CardProp {
   name: string;
@@ -6,6 +7,7 @@ interface CardProp {
   price: number;
   imgsrc?: string;
   button1?: ReactElement;
+  quatn?: ReactElement;
 }
 
 const styleSize = {
@@ -33,6 +35,7 @@ export function Card(prop: CardProp) {
         <p>{prop.price}</p>
         <p>{prop.name}</p>
         {prop.button1 ? prop.button1 : null}
+        {prop.quatn ? prop.quatn : null}
       </div>
     </div>
   );

@@ -1,30 +1,52 @@
-import { RootState } from "../app/store";
+import { useEffect } from "react";
 import { Button } from "../components/Button";
-import { useAppSelector } from "../app/hooks";
-import { useContext } from "react";
-import { UserContext } from "../context/use-counte";
+import { Card } from "../components/Card";
+
+import { Quant } from "../components/Quant";
+import { TotalPrice } from "../components/TotalPrice";
 import { useUserStore } from "../store/useUserStore";
 
 export function Cart() {
-  const { user, logout } = useUserStore();
+  const { user, total, remove, increase, totalPrice, logout } = useUserStore();
   console.log(user);
+  useEffect(() => {
+    totalPrice();
+  }, []);
   return (
     <div>
-      Cart{" "}
-      {user.map((items, key) => (
-        <p key={key}>
-          {items.name} {items.price} {items.quant}
-          <button
-            className="p-2 bg-blue-200"
-            onClick={() => {
-              console.log(items);
-              logout(items);
-            }}
-          >
-            Click to remove
-          </button>
-        </p>
-      ))}
+      <div className="p-8 ">
+        Cart{" "}
+        <div className="flex justify-between">
+          <div className="flex flex-wrap bg-white rounded-sm">
+            {user.map((items, key) => (
+              <Card
+                name={items.name}
+                price={items.price}
+                size="md"
+                quatn={
+                  <Quant
+                    quant={items.quant}
+                    removeitem={() => {
+                      remove(items);
+                      totalPrice();
+                    }}
+                    increase={() => {
+                      increase(items);
+                      totalPrice();
+                    }}
+                    delete={() => {
+                      logout(items);
+                      totalPrice();
+                    }}
+                  />
+                }
+                key={key}
+              />
+            ))}
+          </div>
+          <TotalPrice total={total} />
+        </div>
+      </div>
       <div className="w-full bg-white"></div>
       <div className="bg-white mt-3 flex justify-center ">
         <div className="flex flex-col items-center">
