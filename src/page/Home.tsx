@@ -5,11 +5,14 @@ import { Cate } from "../components/Cate";
 import { Burgur } from "../icon/Burgur";
 import { Drinks } from "../icon/Drinks";
 import { PizzaIcon } from "../icon/Pizzaicon";
-import { addToCart } from "../features/Cart/cartSlice";
-import { useDispatch } from "react-redux";
+// import { addToCart } from "../features/Cart/cartSlice";
+// import { useAppDispatch } from "../app/hooks";
+import { useContext } from "react";
+import { UserContext } from "../context/use-counte";
+import { useUserStore } from "../store/useUserStore";
 
 export function Home() {
-  const dispatch = useDispatch();
+  const { login } = useUserStore();
   return (
     <div>
       <Banner />
@@ -47,10 +50,12 @@ export function Home() {
                 variant="secandary"
                 size="md"
                 onclick={() => {
-                  const done = dispatch(
-                    addToCart({ name: "pizza2", price: 20, id: "123" })
-                  );
-                  console.log(done);
+                  const data = {
+                    name: "pizza33",
+                    price: 30,
+                    quant: 1,
+                  };
+                  login(data);
                 }}
               />
             }

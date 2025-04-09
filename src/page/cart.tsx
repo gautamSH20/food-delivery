@@ -1,18 +1,28 @@
 import { RootState } from "../app/store";
 import { Button } from "../components/Button";
-import { useSelector } from "react-redux";
+import { useAppSelector } from "../app/hooks";
+import { useContext } from "react";
+import { UserContext } from "../context/use-counte";
+import { useUserStore } from "../store/useUserStore";
 
 export function Cart() {
-  const data = useSelector((state: RootState) => state.Cart.data);
-  const state = useSelector((state: RootState) => state);
-  console.log(state);
-  console.log(data);
+  const { user, logout } = useUserStore();
+  console.log(user);
   return (
     <div>
       Cart{" "}
-      {data.map((items, key) => (
+      {user.map((items, key) => (
         <p key={key}>
-          {items.name} {items.price}
+          {items.name} {items.price} {items.quant}
+          <button
+            className="p-2 bg-blue-200"
+            onClick={() => {
+              console.log(items);
+              logout(items);
+            }}
+          >
+            Click to remove
+          </button>
         </p>
       ))}
       <div className="w-full bg-white"></div>
