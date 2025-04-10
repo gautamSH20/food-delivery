@@ -1,54 +1,98 @@
-# React + TypeScript + Vite
+# Food Delivery App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive React application for food ordering with an intuitive user interface for browsing menus, adding items to cart, and checking out.
 
-Currently, two official plugins are available:
+## Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Link of the site [Food]()
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Responsive Design**: Works seamlessly on mobile, tablet, and desktop screens
+- **Interactive Menu**: Browse through categorized food items with horizontal scrolling on larger screens
+- **Navigation**: Easy navigation between Home, Menu, and Cart pages
+- **Shopping Cart**: Add items to cart and manage quantities
+- **Mobile-friendly Interface**: Bottom navigation bar on mobile and traditional top navigation on larger screens
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Technology Stack
+
+- React
+- React Router DOM for navigation
+- Tailwind CSS for styling
+- zustand for state management
+
+## Installation and Setup
+
+1. Clone the repository
+
+```bash
+git clone https://github.com/gautamSH20/food-delivery.git
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+2. Navigate to the project directory
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+```bash
+cd food-delivery
 ```
+
+3. Install dependencies
+
+```bash
+npm install
+```
+
+4. Start the development server
+
+```bash
+npm start
+```
+
+5. Open your browser and visit `http://localhost:5173/`
+
+## Usage Guide
+
+### Navigation
+
+- Use the top navigation bar on desktop or the bottom navigation bar on mobile
+- Click on the Food Delivery logo to return to the homepage
+- Navigate to the Menu page to browse food items
+- Navigate to the Cart page to review your order and checkout
+
+### Menu Browsing
+
+- Food items are categorized by type (Pizza, Burger, Drinks)
+- On desktop and tablet views, use the arrow buttons on either side to scroll through items
+- On mobile, simply swipe horizontally to browse items
+- Click "Add to Cart" to add an item to your shopping cart
+
+### Shopping Cart
+
+- Review your selected items in the Cart page
+- Adjust quantities or remove items as needed
+- Proceed to checkout when ready
+
+## Customization
+
+### Adding New Food Categories
+
+To add a new food category, modify the `Menu.jsx` file:
+
+1. Add a new array with your food items
+2. Create a new ref for the category
+3. Add a new section with the same structure as existing categories
+
+### Styling
+
+The app uses Tailwind CSS for styling. Modify the classes in the component files or extend the Tailwind configuration for custom styles.
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.

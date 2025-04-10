@@ -32,7 +32,9 @@ export function NavBar() {
             title="Food Delivery"
             variant="primary"
             size="lg"
-            onclick={() => {}}
+            onclick={() => {
+              homeNavi();
+            }}
             iconBack={<Foodicon />}
           />
           <div className="md:flex hidden">

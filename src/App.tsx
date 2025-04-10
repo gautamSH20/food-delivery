@@ -3,9 +3,9 @@ import "./App.css";
 
 import { NavBar } from "./components/NavBar";
 import { NavBottomBar } from "./components/NavBottomBar";
-import { Home } from "./page/Home";
-import { Cart } from "./page/Cart";
-import { Menu } from "./page/Menu";
+import { Home } from "./pages/Home";
+import { Cart } from "./pages/Cart";
+import { Menu } from "./pages/Menu";
 
 function App() {
   return (
