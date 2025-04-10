@@ -14,15 +14,21 @@ function App() {
   return (
     <div className="bg-gray-200">
       <UserContextProvider>
-        <NavBar />
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/cart" element={<Cart />} />
-            <Route path="/menu" element={<Menu />} />
-          </Routes>
-        </BrowserRouter>
-        <NavBottomBar />
+        <div className="z-40">
+          <NavBar />
+        </div>
+        <div className="z-10">
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/cart" element={<Cart />} />
+              <Route path="/menu" element={<Menu />} />
+            </Routes>
+          </BrowserRouter>
+        </div>
+        <div className="z-30">
+          <NavBottomBar />
+        </div>
       </UserContextProvider>
     </div>
   );
