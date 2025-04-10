@@ -5,13 +5,24 @@ import { Homeicon } from "../icon/Homeicon";
 import { Menuicon } from "../icon/Menuicon";
 import { Button } from "./Button";
 import { Close } from "../icon/Close";
+import { useNavigate } from "react-router-dom";
 
 export function NavBar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navigate = useNavigate();
   const taiwindForTab =
     "flex p-1   hover:bg-linear-to-t hover:from-green-300 hover:to-green-500";
   function toggle() {
     setIsMenuOpen((e) => (e = !e));
+  }
+  function homeNavi() {
+    navigate("/");
+  }
+  function menuNavi() {
+    navigate("/menu");
+  }
+  function cartNavi() {
+    navigate("/cart");
   }
   return (
     <div className="flex justify-center mb-1 relative z-50">
@@ -30,7 +41,7 @@ export function NavBar() {
               variant="primary"
               size="md"
               onclick={() => {
-                console.log("home");
+                homeNavi();
               }}
               iconFront={<Homeicon />}
               someCss="mr-1"
@@ -40,7 +51,7 @@ export function NavBar() {
               variant="primary"
               size="md"
               onclick={() => {
-                console.log("Menu");
+                menuNavi();
               }}
               iconFront={<Menuicon />}
               someCss="mr-1"
@@ -50,7 +61,7 @@ export function NavBar() {
               variant="primary"
               size="md"
               onclick={() => {
-                console.log("Cart");
+                cartNavi();
               }}
               iconFront={<Carticon />}
               someCss="mr-1"
@@ -62,14 +73,14 @@ export function NavBar() {
         </div>
         {isMenuOpen && (
           <div className=" w-30 md:hidden bg-green-300 rounded-sm absolute translate-x-50 -translate-y-5">
-            <div className={`${taiwindForTab}`}>
+            <div className={`${taiwindForTab}`} onClick={homeNavi}>
               <Homeicon />
               Home
             </div>
-            <div className={`${taiwindForTab}`}>
+            <div className={`${taiwindForTab}`} onClick={menuNavi}>
               <Foodicon /> Menu
             </div>
-            <div className={`${taiwindForTab}`}>
+            <div className={`${taiwindForTab}`} onClick={cartNavi}>
               <Carticon />
               Cart
             </div>

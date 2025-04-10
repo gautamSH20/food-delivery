@@ -45,11 +45,13 @@ export const useUserStore = create<MyUser>()(
           };
           set({ user: [...user, data] });
         }
+        alert(`${prop.name} has been added to cart`);
       },
       logout: (prop: User) => {
         const { user } = get();
         const filtered = user.filter((user1) => !(user1.id === prop.id));
-        console.log("this is filter", filtered);
+
+        alert(`${prop.name} has been deleted from the cart`);
         set({ user: filtered });
       },
       remove: (prop: User) => {
@@ -64,6 +66,7 @@ export const useUserStore = create<MyUser>()(
         const array = updtatedArray.find((ele) => ele.id === prop.id);
         if (array && array.quant <= 0) {
           const filter = user.filter((ele) => !(ele.id === prop.id));
+          alert(`${prop.name} has been deleted from the cart`);
           set({ user: filter });
         } else {
           set({ user: updtatedArray });

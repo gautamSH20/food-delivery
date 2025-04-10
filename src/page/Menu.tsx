@@ -2,6 +2,7 @@ import { Card } from "../components/Card";
 import { Button } from "../components/Button";
 import { Carticon } from "../icon/Carticon";
 import { useUserStore } from "../store/useUserStore";
+import { MenuRespon } from "../components/MenuRespon";
 
 export function Menu() {
   const { login } = useUserStore();
@@ -39,8 +40,9 @@ export function Menu() {
   return (
     <div>
       <div className="bg-white p-2">
+        {/* PIZZA SECTION */}
         <div className="text-2xl">Pizza</div>
-        <div className="flex flex-wrap justify-center items-center">
+        <div className="md:flex hidden flex-wrap justify-center items-center">
           {Pizzas.map((item, key) => (
             <Card
               size="md"
@@ -61,10 +63,14 @@ export function Menu() {
             />
           ))}
         </div>
+        <div className="md:hidden ">
+          <MenuRespon data={Pizzas} />
+        </div>
       </div>
+      {/* BURGUR SECTION */}
       <div className="bg-white p-2 mt-3">
         <p className="text-2xl">Burgur</p>
-        <div className="flex flex-wrap justify-center">
+        <div className="md:flex hidden flex-wrap justify-center">
           {Burgur.map((item, key) => (
             <Card
               size="md"
@@ -85,10 +91,14 @@ export function Menu() {
             />
           ))}
         </div>
+        <div className="md:hidden ">
+          <MenuRespon data={Burgur} />
+        </div>
       </div>
+      {/* DRINK SECTION */}
       <div className="bg-white p-2 mt-3">
         <p className="text-2xl">Drinks</p>
-        <div className="flex flex-wrap justify-center">
+        <div className="md:flex hidden flex-wrap justify-center">
           {Drinks.map((item, key) => (
             <Card
               size="md"
@@ -108,6 +118,9 @@ export function Menu() {
               key={key}
             />
           ))}
+        </div>
+        <div className="md:hidden ">
+          <MenuRespon data={Drinks} />
         </div>
       </div>
     </div>

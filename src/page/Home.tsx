@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { Banner } from "../components/Banner";
 import { Button } from "../components/Button";
 import { Card } from "../components/Card";
@@ -6,12 +7,16 @@ import { Burgur } from "../icon/Burgur";
 import { Carticon } from "../icon/Carticon";
 import { Drinks } from "../icon/Drinks";
 import { PizzaIcon } from "../icon/Pizzaicon";
-// import { addToCart } from "../features/Cart/cartSlice";
-// import { useAppDispatch } from "../app/hooks";
 
 import { useUserStore } from "../store/useUserStore";
 
 export function Home() {
+  const navigate = useNavigate();
+
+  function menuNavi() {
+    navigate("/menu");
+  }
+
   const { login } = useUserStore();
   const product = [
     { name: "Margrita Pizza", price: 100, quant: 1 },
@@ -25,9 +30,27 @@ export function Home() {
       <div className="w-full p-2 mt-2 bg-white">
         <p className="text-xl">Food Categories</p>
         <div className="flex justify-center items-center flex-wrap">
-          <Cate name="Pizza" icon={<PizzaIcon />} />
-          <Cate name="Burgur" icon={<Burgur />} />
-          <Cate name="Drinks" icon={<Drinks />} />
+          <Cate
+            name="Pizza"
+            icon={<PizzaIcon />}
+            onclick={() => {
+              menuNavi();
+            }}
+          />
+          <Cate
+            name="Burgur"
+            icon={<Burgur />}
+            onclick={() => {
+              menuNavi();
+            }}
+          />
+          <Cate
+            name="Drinks"
+            icon={<Drinks />}
+            onclick={() => {
+              menuNavi();
+            }}
+          />
         </div>
       </div>
       <div className="bg-white mt-3">
